@@ -1,0 +1,31 @@
+SOC-TUNE-001 — PowerShell ScriptPolicyTest False Positive Reduction
+
+Problema:
+Arquivos internos __PSScriptPolicyTest_*.ps1
+estavam acionando a regra crítica 92213.
+
+Fonte:
+Sysmon Event ID 11 — File Create
+
+Regra original:
+92213
+
+Severidade original:
+Level 15
+
+Regra local:
+100100
+
+Severidade:
+Level 0
+
+Resultado:
+Eventos continuam sendo coletados pelo Sysmon,
+mas não geram mais alertas críticos no Wazuh.
+
+Controle:
+soclab-tuning-control.ps1 continuou acionando
+92213 / Level 15.
+
+Status:
+VALIDADO ✅

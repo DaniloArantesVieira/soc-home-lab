@@ -1,0 +1,31 @@
+SOC-011 — PowerShell Network Connection to WinRM Port
+
+Fonte:
+Sysmon
+
+Event ID:
+3 — Network Connection
+
+Processo:
+powershell.exe
+
+Origem:
+192.168.1.69
+
+Destino:
+192.168.1.26:5985/TCP
+
+Wazuh Rule:
+92110
+
+Level:
+4
+
+MITRE ATT&CK:
+T1021.006 — Windows Remote Management
+
+Tática:
+Lateral Movement
+
+Resultado:
+Detectado com sucesso ✅

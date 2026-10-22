@@ -1,0 +1,26 @@
+﻿flowchart LR
+
+    subgraph ENDPOINT["Windows 11 Endpoint"]
+        SEC["Windows Security Log<br/>4625 · 4698 · 4720 · 4726 · 1102"]
+        SYS["Sysmon<br/>Event IDs 1 · 3 · 11 · 13"]
+        PS["PowerShell Operational<br/>Event ID 4104"]
+        AGENT["Wazuh Agent<br/>4.14.9"]
+
+        SEC --> AGENT
+        SYS --> AGENT
+        PS --> AGENT
+    end
+
+    AGENT -->|"TCP 1514"| MANAGER
+
+    subgraph SERVER["Debian 13 SOC Server"]
+        MANAGER["Wazuh Manager<br/>4.14.9"]
+        INDEXER["Wazuh Indexer"]
+        DASHBOARD["Wazuh Dashboard"]
+
+        MANAGER --> INDEXER
+        INDEXER --> DASHBOARD
+    end
+
+    RULES["Custom Detection Tuning<br/>Rules 100100 · 100101"] --> MANAGER
+    DASHBOARD --> EVIDENCE["Alert Investigation & Evidence<br/>Dashboard + alerts.json"]

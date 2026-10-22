@@ -1,0 +1,30 @@
+SOC-012 — Scheduled Task Creation
+
+Fonte:
+Windows Security Log
+
+Event ID:
+4698 — A scheduled task was created
+
+Tarefa:
+\SOCLab-SOC012
+
+Ação:
+C:\Windows\System32\notepad.exe
+
+Wazuh Rule:
+60228
+
+Level:
+4
+
+MITRE ATT&CK:
+T1053 — Scheduled Task/Job
+
+Táticas:
+Execution
+Persistence
+Privilege Escalation
+
+Resultado:
+Detectado com sucesso ✅

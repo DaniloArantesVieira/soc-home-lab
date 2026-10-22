@@ -1,0 +1,42 @@
+# ============================================================
+# SOC Home Lab
+# ============================================================
+
+# Third-party binaries
+tools/sysmon/*.exe
+
+# Wazuh local backups
+config/wazuh/backups/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+*.key
+*.pem
+*.pfx
+*.p12
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Editors
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Misc
+.DS_Store
+# Raw Windows event logs may contain local account/system metadata
+*.evtx
+tools/sysmon/Eula.txt

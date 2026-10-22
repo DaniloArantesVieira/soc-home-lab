@@ -1,0 +1,35 @@
+SOC-TUNE-002 — False Positive Reduction in Base64-like Registry Detection
+
+Problema:
+A regra 92041 classificava valores normais de /d como Base64-like
+por causa de uma regex excessivamente permissiva.
+
+Regra original:
+92041
+
+Level:
+10
+
+MITRE:
+T1027 — Obfuscated Files or Information
+T1112 — Modify Registry
+
+Exemplo falso positivo:
+C:\Windows\System32\notepad.exe
+
+Regra local:
+100101
+
+Ação:
+Suprimir 92041 quando /d recebe um caminho absoluto normal do Windows.
+
+Validação:
+SOCLabTuneNormal
+→ 92041 suprimida
+→ 92302 preservada
+
+SOCLabTuneB64
+→ 92041 preservada
+
+Resultado:
+VALIDADO ✅
